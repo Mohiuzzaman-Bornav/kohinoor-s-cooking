@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Kohinoor's Cooking</title>
+		<meta charset="utf-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+			<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+			<link rel="stylesheet" type="text/css" href="css/mycss.css">	
+			<link rel="stylesheet" type="text/css" href="css/NevCss.css">
+			<link rel="stylesheet" type="text/css" href="css/card.css">	
+			<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+			<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+
+	</head>
+<body>
+	<!-- Navbar start-->
+	<nav  class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-lg p-3 mb-5 " >
+	  <a class="navbar-brand display-4" id="top-logo">Kohinoor's Cooking</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon" ></span>
+	  </button>
+
+	  <div class=" collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+	    <form class="form-inline my-4 my-lg-0">
+	      <div class="d-flex  justify-content-center h-100">
+	        <div class="searchbar" id="s1">
+	          <input class="search_input" type="text" name="" placeholder="Search...">
+	          <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+	        </div>
+	      </div>
+	      <div>
+	      	<a href="home.html" class="cart-logo "><i class="fa fa-home fa-2x color-logo color-logo-1 color-logo-1c"></i></a>
+	      </div>
+	      <!--<div>
+	      	<a href="wishlist.html" class="cart-logo "><i class="fa fa-heart fa-2x color-logo color-logo-1 color-logo-1c"></i></a>
+	      </div>-->
+	      <div>
+
+	      <div class="container">
+
+		    <section class="color-pattern-1 my-2 my-sm-0">
+		        <div>
+		            <button class="button button-1 button-1c" type="button" data-toggle="modal" data-target="#loginModal">Login</button>
+
+		        </div>
+		    </section>
+		    <section class="color-pattern-1 my-2 my-sm-0">
+		        <div>
+		            <button class="button button-1 button-1c" type="button" data-toggle="modal" data-target="#regModal">Register</button>
+		            
+		        </div>
+		    </section>
+		  </div> 
+	      </div>
+	    </form>
+	  </div>
+	</nav>
+	<!-- Navbar end-->
+
+<!---------------------------------------------------------------------------------------------------------->
+
+
+	<!-- Modal-->
+	<div class="modal fade " id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered " role="document">
+	    <div class="modal-content modal-info ">
+	      <div class="modal-header ">
+	        <h5 class="modal-title text-white " id="exampleModalLabel">Login Credentials</h5>
+	        <!--
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button> -->
+	      </div>
+	      <div class="modal-body">
+	      	<from method="post" class="needs-validation" name="logform" novalidate onsubmit="return logvalidateForm()">
+		        <div class="form-group">
+		        	<label class="text-white">User Name</label>
+		        	<input id="logname" name="logname" type="text" class="form-control" placeholder="user name" onkeyup="Lognamevalidate();" required > <span id="inv-logname" style="display:none; color: red;">Invalid user Name</span><br/>
+		        </div>
+		        <div class="form-group">
+		        	<label class="text-white">Password</label>
+		        	<input id="logpass" name="logpass" type="Password" class="form-control" placeholder="" onkeyup=" logpassvalidate()" required> <span id="inv-logpass" style="display:none; color: red;">Must use uppercase,lowercase and number</span><br/>
+		        </div>
+		        <button type="submit" class="button button-1 button-1c" data-dismiss="modal">Close</button>
+	        	<button type="button" class="button button-1 button-1c">Login</button>
+		      	</div>
+		      	
+	  		</from>
+
+	  		<script type="text/javascript">
+	  			function Lognamevalidate(){
+	            	var name=/^U-[A-Za-z]*_[0-9]{4,4}$/;
+
+	            	var username=document.getElementById("logname").value;
+	            	if(name.test(username)){
+	                    document.getElementById("inv-logname").style.display="none";
+	                }
+	                else{
+	                    document.getElementById("inv-logname").style.display="inline";
+	                }
+
+	            }
+	            function logpassvalidate(){
+	                var plength=/^.{10,}$/;///length checking
+	                var pcap=/[A-Z]+/;///capital checking
+	                var psmall=/[a-z]+/;///lowercase checking
+	                var pspecial=/^.*[A-Za-z0-9]*.*$/;///special character checking
+
+	                var passinput=document.getElementById("logpass").value;
+
+	                if(plength.test(passinput)){
+	                    if(pcap.test(passinput)){
+		                    if(psmall.test(passinput)){
+		                    	if(pspecial.test(passinput)){
+	                    			document.getElementById("inv-logpass").style.display="none";
+	                			}
+		                	}
+	                	}
+	                }
+	                else{
+	                    document.getElementById("inv-logpass").style.display="inline";
+	                }
+	            }
+	            function logvalidateForm() {
+				  var name = document.forms["logform"]["logname"].value;
+				  
+				  var pass = document.forms["logform"]["logpass"].value;
+				 
+				  
+				  if (name == ""||pass == "") {
+				    alert("All must be filled out");
+				    return false;
+				  }
+				}
+	  		</script>
+	      
+
+	    </div>
+	  </div>
+	</div>
+
+	<div class="modal fade" id="regModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered" role="document">
+	    <div class="modal-content modal-info">
+	      <div class="modal-header">
+	        <h5 class="modal-title text-white" id="exampleModalLabel">Registration</h5>      
+	      </div>
+	      <div class="modal-body">
+	        <form method="post" class="needs-validation" name="regform" novalidate onsubmit="return validateForm()">
+				<div class="form-row">
+					<div class="col-lg-12 form-group">
+						<label>Name</label>   
+					  	<input id="uname" name="uname" type="text" class="form-control" placeholder="U-name_birthyear" onkeyup="namevalidate();" required > <span id="inv-name" style="display:none; color: red;">Invalid Name</span><br/>
+				        
+					</div> 
+				</div> 
+				<div class="form-row">
+					<div class="col-lg-6 form-group">
+						<label>Email </label> 
+						<input id="email"  name="email" type="text" class="form-control" placeholder="example@gmail.com" onkeyup="mailvalidate();"  required> <span id="inv-mail" style="display:none; color: red;">Invalid Email</span><br/>  
+					  	
+					</div> 
+					<div class="col-lg-6 form-group">
+						<label>Phone</label>
+					  	<input id="phone" name="phone" type="text" class="form-control" placeholder="+8801xxxxxxxxx"  onkeyup="numbvalidate();" required> <span id="inv-phn" style="display:none; color: red;">Invalid Number</span><br/> 
+					  	
+					</div> 
+				</div> 
+				
+				<div class="form-row">
+					<div class="form-group col-lg-12">
+					  <label>Area</label>
+					  <select id="inputState" class="form-control" required>					      
+					      <option>Dhanmondi</option>
+					      <option>Mohammadpur</option>
+					      <option>Azimpur</option>
+					      <option>Ramna</option>
+					      <option>Lalbag</option>
+					  </select>
+					</div> 
+					
+				</div> 
+				<div class="form-row">
+					<div class="col-lg-6 form-group">
+						<label>Password </label>   
+					  	<input id="upass" name="upass" type="Password" class="form-control" placeholder="" onkeyup=" passvalidate()" required> <span id="inv-pass" style="display:none; color: red;">Must use uppercase,lowercase and number</span><br/>
+					</div> 
+					<div class="col-lg-6 form-group">
+						<label>Confirm Password</label>
+					  	<input id="conpass" name="conpass" type="Password" class="form-control" placeholder="" onkeyup=" conpassvalidate()" required> <span id="inv-conpass" style="display:none; color: red;">Doesn't match with password</span><br/>
+					</div> 
+				</div> 
+			    <button type="button" class="button button-1 button-1c" data-dismiss="modal">Close</button>
+	        	<button type="submit" class="button button-1 button-1c" >Register</button>                                     
+			</form>
+			<script type="text/javascript">
+				function mailvalidate(){
+	                var email=/^([a-zA-Z0-9_.-]+)@([a-z0-9_.-]+)\.com$/;
+
+	                var useremail=document.getElementById("email").value;
+
+	                if(email.test(useremail)){
+	                    document.getElementById("inv-mail").style.display="none";
+	                }
+	                else{
+	                    document.getElementById("inv-mail").style.display="inline";
+	                }
+	            }
+	            function numbvalidate(){
+	            	var phone=/^\+8801[0-9]{9,9}$/;
+
+	            	var userphone=document.getElementById("phone").value;
+	            	if(phone.test(userphone)){
+	                    document.getElementById("inv-phn").style.display="none";
+	                }
+	                else{
+	                    document.getElementById("inv-phn").style.display="inline";
+	                }
+
+	            }
+	            function namevalidate(){
+	            	var name=/^U-[A-Za-z]*_[0-9]{4,4}$/;
+
+	            	var username=document.getElementById("uname").value;
+	            	if(name.test(username)){
+	                    document.getElementById("inv-name").style.display="none";
+	                }
+	                else{
+	                    document.getElementById("inv-name").style.display="inline";
+	                }
+
+	            }
+	            function passvalidate(){
+	                var plength=/^.{10,}$/;///length checking
+	                var pcap=/[A-Z]+/;///capital checking
+	                var psmall=/[a-z]+/;///lowercase checking
+	                var pspecial=/^.*[A-Za-z0-9]*.*$/;///special character checking
+
+	                var passinput=document.getElementById("upass").value;
+
+	                if(plength.test(passinput)){
+	                    if(pcap.test(passinput)){
+		                    if(psmall.test(passinput)){
+		                    	if(pspecial.test(passinput)){
+	                    			document.getElementById("inv-pass").style.display="none";
+	                			}
+		                	}
+	                	}
+	                }
+	                else{
+	                    document.getElementById("inv-pass").style.display="inline";
+	                }
+	            }
+	            function conpassvalidate(){
+	            	var passinput=document.getElementById("upass").value;
+	            	var conpassinput=document.getElementById("conpass").value;
+	            	if(conpassinput===passinput){
+            			document.getElementById("inv-conpass").style.display="none";
+	            	}
+	            	else{
+	                    document.getElementById("inv-conpass").style.display="inline";
+	                }
+	            }
+	            function validateForm() {
+				  var name = document.forms["regform"]["uname"].value;
+				  var email = document.forms["regform"]["email"].value;
+				  var phone = document.forms["regform"]["phone"].value;
+				  var pass = document.forms["regform"]["upass"].value;
+				  var conpass = document.forms["regform"]["conpass"].value;
+				  
+				  if (name == ""||email == ""||phone == ""||pass == ""||conpass == "") {
+				    alert("All must be filled out");
+				    return false;
+				  }
+				} 
+	            
+			</script>
+			
+			
+	      </div>
+	      
+	    </div>
+	  </div>
+	</div>
+
+
+<!--=============================================================================================-->
+
+<div>
+<div class="container col-12 admin-page" >
+	<div class="row">
+		<div class="nav flex-column nav-pills col-12 col-md-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+		  <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#Ongoing-Orders" role="tab" aria-controls="Ongoing-Orders" aria-selected="true">Ongoing Orders</a>
+		  <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#Update-products" role="tab" aria-controls="Update-products" aria-selected="false">Update products</a>
+		  <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#Add-products" role="tab" aria-controls="Add-products" aria-selected="false">Add products</a>
+		  <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#Remove-products" role="tab" aria-controls="Remove-products" aria-selected="false">Remove products</a>
+		</div>
+		<div class="tab-content col-12 col-md-9" id="v-pills-tabContent">
+		  <div class="tab-pane fade show active" id="Ongoing-Orders" role="tabpanel" aria-labelledby="Ongoing-Orders">
+		  		<div class="container col-lg-12" >
+					<table class="table table-hover ">
+					  <thead>
+					    <tr>
+					      <th class="col-1" scope="col">Order</th>
+					      <th class="col-5" scope="col">Food</th>
+					      <th class="col-2" scope="col">Total Price</th>
+					      <th class="col-3" scope="col">Address</th>
+					      <th class="col-1" scope="col">Note</th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					    <tr>
+					      <th scope="row">06852</th>
+					      <td>
+					      	<ul class="list-group text-danger">
+							  <li class="list-group-item d-flex justify-content-between align-items-center">
+							    Beef Momo
+							    <span >x 3</span>
+							  </li>
+							  <li class="list-group-item d-flex justify-content-between align-items-center">
+							    Veg Cutlet
+							    <span class="">x 2</span>
+							  </li>
+							  
+							</ul>
+					      </td>
+
+					      <td>580 Tk</td>
+					      	
+					      <td>
+					      	<ul class="list-group text-dark">
+							  <li class="list-group-item d-flex justify-content-between align-items-center">
+							    Dhanmondi 5/A, H-5
+							  </li>
+							  <li class="list-group-item d-flex justify-content-between align-items-center">
+							    +8801715593529
+							  </li>
+							  
+							</ul>
+						</td>
+					      <td>Extra spicy</td>
+					    </tr>
+					    <tr>
+					      <th scope="row">06853</th>
+					      <td><ul class="list-group text-danger">
+							  <li class="list-group-item d-flex justify-content-between align-items-center">
+							    Parata with Kata Mashla
+							    <span >x 3</span>
+							  </li>
+							  
+							  
+							</ul></td>
+					      <td>300 Tk </td>
+					      <td>
+					      	<ul class="list-group text-dark">
+							  <li class="list-group-item d-flex justify-content-between align-items-center">
+							    F-8c, H-12, Road-12A, Dhanmondi
+							  </li>
+							  <li class="list-group-item d-flex justify-content-between align-items-center">
+							    +8801715558632
+							  </li>
+							  
+							</ul>
+					      </td>
+					      <td></td>
+					    </tr>
+					    <tr>
+					      <th scope="row">06854</th>
+					      <td><ul class="list-group text-danger">
+							  <li class="list-group-item d-flex justify-content-between align-items-center">
+							    Balushahi
+							    <span >x 1</span>
+							  </li>
+							</ul>
+					      </td>
+					      <td>700 Tk</td>
+					      <td>
+					      	<ul class="list-group text-dark">
+							  <li class="list-group-item d-flex justify-content-between align-items-center">
+							    28/B, Tanary Block, Zigatola (near Baitul Mohorrom Moshjid)
+							  </li>
+							  <li class="list-group-item d-flex justify-content-between align-items-center">
+							    +880178569220
+							  </li>
+							  
+							</ul>
+					      </td>
+					      <td></td>
+					    </tr>
+					  </tbody>
+					</table>
+				</div>
+		  </div>
+		  <div class="tab-pane fade" id="Update-products" role="tabpanel" aria-labelledby="Update-products" >
+		  	<div>
+					<table class="table table-hover ">
+					  <thead>
+					    <tr>
+					      <th class="col-md-3 col-4" scope="col">Food</th>
+					      <th class="col-md-4 col-6" scope="col">Details</th>
+					      <th class="col-md-1 col-2" scope="col">Price</th>
+					      <th class="col-md-3 col-12" scope="col">Pictures</th>
+					      <th class="col-md-1 col-12" scope="col">Edit</th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					    <tr>
+					  	  <th scope="row"><!-- Material input -->
+					  	  	Parata with Kata Mashla
+					  	  	<div class="form__group field ">
+							  <input value="" type="input" class="form__field" name="name" placeholder="New name here" id='name' required /> 
+							</div>
+						  </th>
+				
+					      <td>
+							 Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+
+					      	<div class="form__group field ">
+							  <input value="" type="input" class="form__field" name="name" id='name' placeholder="New details here" required /> 
+							</div>
+							 
+					      </td>
+
+					      <td>
+					      	<div class="form__group field">580 Tk
+							  <input value="" type="input" class="form__field" name="name" id='name' placeholder="New price here" required /> 
+							</div>
+						  </td>
+					      	
+					      <td>
+					      	<ul>
+							  <li><img class="d-block d-flex w-100" src="image/1.jpg" style="height: 10%;width: 10%;"></li>
+							  <li><img class="d-block d-flex w-100" src="image/1a.jpg" style="height: 10%;width: 10%;"></li>
+							  <li><img class="d-block d-flex w-100" src="image/1b.jpg" style="height: 10%;width: 10%;"></li>
+							</ul>
+						</td>
+					      <td><button type="submit" class="button button-1 button-1">update</button></td>
+					    </tr>
+					  </tbody>
+					</table>
+				</div>
+			</div>
+
+		  <div class="tab-pane fade" id="Add-products" role="tabpanel" aria-labelledby="Add-products" style="padding-bottom: 37px;">
+		  	<div class="container">
+		  	<form class="needs-validation" name="addproduct" novalidate onsubmit="return addForm();">
+				  <div class="form-row">
+				    <div class="col-md-6 mb-3">
+				      <label for="validationTooltip01">Food name</label>
+				      <input type="text" class="form-control" id="addproductname" name="addproductname" placeholder="Food name" value="" required>
+				      <div class="valid-tooltip">
+				        Looks good!
+				      </div>
+				    </div>
+				    <div class="col-md-6 mb-3">
+				      <label for="validationTooltip02">Price</label>
+				      <input type="text" class="form-control" id="addproductprice" name="addproductprice" placeholder="price" value="" required>
+				      <div class="valid-tooltip">
+				        Looks good!
+				      </div>
+				    </div>
+				    <div class="col-md-12 mb-3">
+				      <label for="validationTooltip02">Details</label>
+				      <input type="text" class="form-control" id="addproductdetails" name="addproductdetails" placeholder="Details" value="" required>
+				      <div class="valid-tooltip">
+				        Looks good!
+				      </div>
+				    </div>
+				  </div>
+				  <div>
+					  <div class="custom-file" style="padding-top: 25px;padding-bottom: 25px;">
+						  <input id="addproductp1" type="file" class="custom-file-input" id="customFile" required="">
+						  <label class="custom-file-label" for="customFile"></label>
+					  </div>
+		  			  <div class="custom-file" style="padding-top: 25px;padding-bottom: 25px;">
+						  <input id="addproductp2" type="file" class="custom-file-input" id="customFile">
+						  <label class="custom-file-label" for="customFile">Photo 2</label>
+					  </div>
+		  			  <div class="custom-file" style="padding-top: 25px;padding-bottom: 25px;">
+						  <input id="addproductp3" type="file" class="custom-file-input" id="customFile">
+						  <label class="custom-file-label" for="customFile">Photo 3</label>
+					  </div>
+				  </div>
+				<button  class="button button-1 button-1c" type="submit">ADD product</button>
+			</form>
+			<script type="text/javascript">
+				function addForm() {
+				  var prname = document.forms["addproduct"]["addproductname"].value;
+				  var prprice = document.forms["addproduct"]["addproductprice"].value;
+				  var prdetails = document.forms["addproduct"]["addproductdetails"].value;
+				  var photo1 = document.forms["addproduct"]["addproductp1"].value;
+				  var photo2 = document.forms["addproduct"]["addproductp2"].value;
+				  var photo3 = document.forms["addproduct"]["addproductp3"].value;
+				  
+				  
+				  if (prname == ""||prprice == ""||prdetails == ""||photo1 == ""||photo2 == ""||photo3 == "") {
+				    alert("All must be filled out");
+				    return false;
+				  }
+				} 
+				$(".custom-file-input").on("change", function() {
+				  var fileName = $(this).val().split("\\").pop();
+				  $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+				});
+			</script>
+			</div>
+		  </div>
+		  <div class="tab-pane fade" id="Remove-products" role="tabpanel" aria-labelledby="Remove-products"><div>
+					<table class="table table-hover ">
+					  <thead>
+					    <tr>
+					      <th class="col-md-3 col-4" scope="col">Food</th>
+					      <th class="col-md-4 col-6" scope="col">Details</th>
+					      <th class="col-md-1 col-2" scope="col">Price</th>
+					      <th class="col-md-3 col-12" scope="col">Pictures</th>
+					      <th class="col-md-1 col-12" scope="col">Edit</th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					    <tr>
+					  	  <th scope="row">					  	  	
+							  Parata with Kata Mashla	
+						  </th>
+				
+					      <td>
+							 Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+					      </td>
+
+					      <td>
+					      	<div class="form__group field text-danger">
+							  580 tk
+							</div>
+						  </td>
+					      	
+					      <td>
+					      	<ul>
+							  <li><img class="d-block d-flex w-100" src="image/1.jpg" style="height: 10%;width: 10%;"></li>
+							  <li><img class="d-block d-flex w-100" src="image/1a.jpg" style="height: 10%;width: 10%;"></li>
+							  <li><img class="d-block d-flex w-100" src="image/1b.jpg" style="height: 10%;width: 10%;"></li>
+							</ul>
+						</td>
+					      <td><button class="button button-1 button-1">Delete</button></td>
+					    </tr>
+					    <tr>
+					  	  <th scope="row">					  	  	
+							  Beef Momo	
+						  </th>
+				
+					      <td>
+							 Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+					      </td>
+
+					      <td>
+					      	<div class="form__group field text-danger">
+							  300 tk
+							</div>
+						  </td>
+					      	
+					      <td>
+					      	<ul>
+							  <li><img class="d-block d-flex w-100" src="image/2.jpg" style="height: 10%;width: 10%;"></li>
+							  <li><img class="d-block d-flex w-100" src="image/2a.jpg" style="height: 10%;width: 10%;"></li>
+							  <li><img class="d-block d-flex w-100" src="image/2b.jpg" style="height: 10%;width: 10%;"></li>
+							</ul>
+						</td>
+					      <td><button class="button button-1 button-1">Delete</button></td>
+					    </tr>
+					  </tbody>
+					</table>
+				</div></div>
+		</div>
+	</div>
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<!-- Footer -->
+	<footer class="clearfix12 page-footer font-small unique-color-dark">
+
+	  <div style="background-color: #1C2331;">
+	    <div class="container">
+
+	      <!-- Grid row-->
+	      <div class="row py-4 d-flex align-items-center">
+
+	        <!-- Grid column -->
+	        <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+	          <h6 class="mb-0">Get connected with us on social networks!</h6>
+	        </div>
+	        <!-- Grid column -->
+
+	        <!-- Grid column -->
+	        <div class="col-md-6 col-lg-7 text-center text-md-right">
+
+	          <!-- Facebook -->
+	          <a href="https://www.facebook.com/Kohinoors-Cooking-113327063754539" class="fb-ic">
+	            <i  class="fab fa-facebook-f white-text mr-4"> </i>
+	          </a>
+	          
+	          <a class="ins-ic">
+	            <i class="fab fa-instagram white-text"> </i>
+	          </a>
+
+	        </div>
+	        <!-- Grid column -->
+
+	      </div>
+	      <!-- Grid row-->
+
+	    </div>
+	  </div>
+
+	  <!-- Footer Links -->
+	  <div class="container text-center text-md-left mt-5">
+
+	    <!-- Grid row -->
+	    <div class="row mt-3">
+
+	      <!-- Grid column -->
+	      <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+
+	        <!-- Content -->
+	        <h6 class="text-uppercase font-weight-bold red-color-text">Kohinoor's Cooking</h6>
+	        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+	        <p>No one who cooks, cooks alone. Even at her most solitary, a cook in the kitchen is surrounded by generations of cooks past, the advice and menus of cooks present, the wisdom of cookbook writers</p>
+
+
+	      </div>
+	      <!-- Grid column -->
+
+	      <!-- Grid column -->
+	      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+
+	       
+
+	      </div>
+	      <!-- Grid column -->
+
+	      <!-- Grid column -->
+	      <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+
+	       
+	      </div>
+	     
+	      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+
+	        <!-- Links -->
+	        <h6 class="text-uppercase font-weight-bold red-color-text">Contact</h6>
+	        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+	        <p>
+	          <i class="fas fa-home mr-3"></i> Dhanmondi, Dhaka 1209, BD</p>
+	        <p>
+	          <i class="fas fa-envelope mr-3"></i> knoor_cooking@gmail.com</p>
+	        <p>
+	          <i class="fas fa-phone mr-3"></i> + 880 1715-593549</p>
+	        <p>
+	          <i class="fas fa-print mr-3"></i> + 880 1558-016661</p>
+ 
+	      </div>
+	      <!-- Grid column -->
+
+	    </div>
+	    <!-- Grid row -->
+
+	  </div>
+	  <!-- Footer Links -->
+
+	  <!-- Copyright -->
+	  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+	    <a href="#"> Kohinoors.com</a>
+	  </div>
+	  <!-- Copyright -->
+
+	</footer>
+
+	<!-- Footer -->	
+
+
+
+
+
+
+
+
+
+
+
+	<script src="jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">			
+		</script>
+
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">			
+	</script>
+
+	<script src="js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+	</script>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="js/myjs.js"></script>
+</body>
+</html>
